@@ -470,7 +470,7 @@ body {
   height: 390px;
   margin-bottom: 21px;
 }
-/* image div */
+/* image div after hover */
 .product-img-div {
   background-size: 270px;
   background-color: #c0c0c0;
@@ -498,9 +498,6 @@ body {
   display: none;
 }
 
-/* .product-img-div > img {
-  width: 100%;
-} */
 .product-cap {
   height: 70px;
   width: 100%;
@@ -537,7 +534,6 @@ body {
   display: inline-block;
   margin: 10px;
   color: #2d2d2d;
-  /* border-bottom: 1px dotted #2d2d2d; */
   font-weight: 700;
   font-size: 12px;
   font-weight: lighter;
@@ -549,16 +545,3 @@ body {
   margin-left: 55%;
   border-bottom: 1px dotted #2d2d2d;
 }
-
-/* 
-             <div class="product-ele-div">
-                    <div class="product-cont">
-                        <div class="product-img-div">
-                            <img src="https://cdn11.bigcommerce.com/s-8pcbviyy/images/stencil/1280x1280/products/6088/31576/010200865-2__83146.1619122623.jpg?c=2"alt=""/>
-                        </div>
-                        <div class="product-cap">
-                            <a href="#">Triangle and Pears Asymmetrical Hoop Earrings</a>
-                            <div class="price">$28.00</div>
-                        </div>
-                    </div>
-                </div> */
