@@ -8,6 +8,7 @@
     <title>Lovoda</title>
     <link rel="stylesheet" href="css/new-arrival.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -424,6 +425,7 @@
         let main = document.getElementsByClassName('product-elements');
          main = main[0];
          let i=1;
+
          productsList.forEach(function(ele){
               let eleDiv = document.createElement('div');
              eleDiv.setAttribute('class', 'product-ele-div')
@@ -470,6 +472,12 @@
                  imgDiv.style.backgroundImage = `url(${ele.url})`;
                  btn.style.display = "none";
              }
+            pcont.onclick=function(){
+                window.location.href='single-prod.html';
+                let one = [];
+                one.push(ele);
+                localStorage.setItem('one',JSON.stringify(one));
+            } 
 
              main.append(eleDiv);
          });
