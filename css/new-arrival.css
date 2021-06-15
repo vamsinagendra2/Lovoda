@@ -437,13 +437,24 @@ body {
 .view-model > div:nth-child(3) {
   margin-right: 10%;
 }
-.view-model > div:nth-child(5) {
-  width: 33%;
-  font-size: 12px;
-  padding: 11px 15px;
+.view-model > div:nth-child(5) > select {
+  width: 170px;
+  height: 40px;
   font-size: 12px;
   color: #575555;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+.view-model > div:nth-child(2),
+.view-model > div:nth-child(3) {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.view-model > div:nth-child(2) > i,
+.view-model > div:nth-child(3) > i {
+  font-size: 15px;
+}
+
 /* products elements-div */
 .product-elements {
   width: 100%;

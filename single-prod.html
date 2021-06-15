@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovoda</title>
     <link rel="stylesheet" href="css/single-prod.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/3824cf4ce7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -99,7 +99,7 @@
 
     <div class="page-tracker">
         <div class="tracker-content">
-            <p><a href="#">Home</a> ><a href="#">New</a> ><a href="#">New arrivals</a> ><a href="">Armored Curved Huggie Hoop Earrings</a> </p>
+            <p><a href="#">Home</a> ><a href="#">New</a> ><a href="#">New arrivals</a> ><a class="prodname">Armored Curved Huggie Hoop Earrings</a> </p>
         </div>
     </div>
     <div class="product-cont">
@@ -152,14 +152,25 @@
                     <div>
                         <span>Quantity:</span>
                         <div>
-                            <div></div>
+                            <div><i class="fas fa-chevron-down"></i></div>
                             <input type="text" value="1" />
-                            <div></div>
+                            <div><i class="fas fa-chevron-up"></i></div>
                         </div>
                     </div>
                     <div>
                         <button onclick="cart()">ADD TO CART</button>
-                        <a href="#">Add to Wish list</a>
+                        <a href="#" onclick="wish()"><i class="far fa-heart"></i>Add to Wish list</a>
+                    </div>
+                    <div class="icons">
+                        <span>
+                            <a><i class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a><i class="fab fa-pinterest-square"></i></i></a>
+                            <a><i class="fas fa-envelope"></i></i></a>
+                            <a><i class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a ><i class="fas fa-plus"></i></a>
+                        </span>
                     </div>
                     <div>
                        
@@ -168,13 +179,42 @@
             </div>
         </div>
     </div>
+    <div class="mid1">
+        <div>
+            <div>DETAILS</div>
+            <div>SHIPPING & RETURNS</div>
+            <div></div>
+        </div>
+        <div class="mid2">
+            <p>Suit up your ears with the armored curved huggie hoop earrings.</p>
+            <ul>
+                <li>14k Gold Plated</li>
+            </ul>
+            <p>Measurement:</p>
+            <ul>
+                <li>Drop: 0.50 in. / 1.1 cm</li>
+                <li>Width: 0.70 in. / 1.85 cm</li>
+            </ul>
+        </div>
+        <div class="mid21">
+            <h5>Shipping and Returns Policy</h5>
+            <p>Shipping FAQ</p>
+            <p>Returns / Exchanges FAQ</p>
+        </div>
+        <div class="mid3">
+            <p>Customer Reviews</p>
+        </div>
+    </div>
 
 
     </body>
     <script>
         let single = JSON.parse(localStorage.getItem('one'));
-
         single=single[0];
+
+        let track = document.getElementsByClassName('prodname')[0];
+        track.innerHTML=single.name;
+
         function replace(){
             let large = document.getElementsByClassName('main-img')[0];
             large.style.backgroundImage = `url(${single.url})`;
@@ -183,10 +223,19 @@
 
             let s1 =document.createElement('div');
             s1.style.backgroundImage = `url(${single.url})`;
+            s1.onclick=function(){
+                large.style.backgroundImage = `url(${single.url})`;
+            }
             let s2 = document.createElement('div');
             s2.style.backgroundImage = `url(${single.url2})`;
+            s2.onclick = function () {
+                large.style.backgroundImage = `url(${single.url2})`;
+            }
             let s3 = document.createElement('div');
             s3.style.backgroundImage = `url(${single.url})`;
+            s3.onclick = function () {
+                large.style.backgroundImage = `url(${single.url})`;
+            }
             images.append(s1,s2,s3);
 
             let info = document.getElementsByClassName('prod-info')[0];
@@ -210,9 +259,6 @@
         replace();
 
 
-
-
-
         let products =JSON.parse(localStorage.getItem('productsList'));
 
         function cart(){
@@ -226,8 +272,26 @@
             cart.push(single);
 
             localStorage.setItem('cart',JSON.stringify(cart));
-            console.log(cart);
         }
+
+        function wish() {
+                let wishlist = localStorage.getItem('wishlist');
+
+                if (wishlist == null) {
+                    wishlist = [];
+                    wishlist.push(single);
+                } else {
+                    wishlist = JSON.parse(localStorage.getItem('wishlist'));
+                    wishlist.forEach(function (a) {
+                        if (a.name == single.name) {
+                            alert('already in cart')
+                        } else {
+                            wishlist.push(single);
+                        }
+                    })
+                }
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            }
 
 
     </script>

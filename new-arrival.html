@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/new-arrival.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/3824cf4ce7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -121,10 +122,10 @@
                     <div class="filter-list">
                         <ul>
                             <li><input type="checkbox" /><span>Beige</span></li>
-                            <li><input type="checkbox" /><span>Black</span></li>
+                            <li onclick="colorBlack()"><input  type="checkbox" /><span>Black</span></li>
                             <li><input type="checkbox" /><span>Champagne</span></li>
-                            <li><input type="checkbox" /><span>Clear</span></li>
-                            <li><input type="checkbox" /><span>Gold</span></li>
+                            <li onclick="colorClear()"><input type="checkbox" /><span>Clear</span></li>
+                            <li onclick="colorGold()"><input type="checkbox" /><span>Gold</span></li>
                             <li><input type="checkbox" /><span>Gray</span></li>
                             <li><input type="checkbox" /><span>Green</span></li>
                             <li><input type="checkbox" /><span>Multi</span></li>
@@ -138,11 +139,11 @@
                     <div class="filter-list">
                         <ul>
                             <li><input type="checkbox" /><span>10k Gold Plating</span></li>
-                            <li><input type="checkbox" /><span>14k Gold Plating</span></li>
+                            <li onclick="mat14k()"><input type="checkbox" /><span>14k Gold Plating</span></li>
                             <li><input type="checkbox" /><span>14k Rose Gold Plating</span></li>
                             <li><input type="checkbox" /><span>Acrylic</span></li>
                             <li><input type="checkbox" /><span>Stainless Steel</span></li>
-                            <li><input type="checkbox" /><span>Sterling Silver</span></li>
+                            <li onclick="matSilver()"><input type="checkbox" /><span>Sterling Silver</span></li>
                         </ul>
                     </div>
                     <div class="filter-list-header" onclick="show(2)">
@@ -150,10 +151,10 @@
                     </div>
                     <div class="filter-list">
                         <div class="filter-price">
-                            <input type="number" placeholder="Min." />
-                            <input type="number" placeholder="Max." />
+                            <input type="number" placeholder="Min." id="min" />
+                            <input type="number" placeholder="Max." id="max" />
                         </div>
-                        <button>UPDATE</button>
+                        <button onclick="price()">UPDATE</button>
                     </div>
                     <div class="filter-list-header brands">
                         <span>Brands</span><span></span>
@@ -164,7 +165,7 @@
                         </a>
                         <span class="material-icons">
                             chevron_right
-                        </span> <a href="#">
+                        </span>
                             <h5> View all brands</h5>
                         </a>
 
@@ -186,11 +187,19 @@
                 </div>
                 <div class="view-model">
                     <h5>VIEW AS</h5>
-                    <div></div>
-                    <div></div>
+                    <div><i class="fas fa-th"></i></div>
+                    <div><i class="fas fa-bars"></i></div>
                     <h5>SORT BY:</h5>
-                    <div>Newest items</div>
-                    <div></div>
+                    <div><select id="sort" onchange="sort()">
+                        <option value="featured" selected="">Featured Items</option>
+                        <option value="newest">Newest Items</option>
+                        <option value="bestselling">Best Selling</option>
+                        <option value="alphaasc">A to Z</option>
+                        <option value="alphadesc">Z to A</option>
+                        <option value="review">By Review</option>
+                        <option value="priceasc">Price: Ascending</option>
+                        <option value="pricedesc">Price: Descending</option>
+                    </select></div>
                 </div>
             </div>
             <div class="product-elements">
@@ -421,12 +430,12 @@
     // products appending from the ojects
     
 
-    function products(){
+    function display(list){
         let main = document.getElementsByClassName('product-elements');
          main = main[0];
          let i=1;
 
-         productsList.forEach(function(ele){
+         list.forEach(function(ele){
               let eleDiv = document.createElement('div');
              eleDiv.setAttribute('class', 'product-ele-div')
 
@@ -483,11 +492,150 @@
          });
     }
 
-    products();
+    display(productsList);
 
     localStorage.setItem('productsList',JSON.stringify(productsList));
+    
 
+    function sort(){
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML="";
+        let op = document.getElementById('sort').value;
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        if (op == "priceasc") {
+            prod = prod.sort(function (a, b) {
+                return a.price - b.price;
+            });
+            display(prod);
+        }
+        if(op == "pricedesc"){
+            prod = prod.sort(function (a, b) {
+                return b.price-a.price;
+            });
+            display(prod);
+        }
+         if (op == "alphaasc") {
+            prod = prod.sort(function (a, b) {
+                return a.name - b.name;
+            });
+            display(prod);
+        }
+        if (op == "alphadesc") {
+            prod = prod.sort(function (a, b) {
+                return b.name - a.name;
+            });
+            display(prod);
+        }else{
+            display(prod);
+        }
+        
+    }
 
+    let arr = [];
+
+    function colorGold(){
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        
+         prod = prod.filter(function (a) {
+            if (a.color == "Gold") {
+                arr.push(a);
+            }
+        });
+        display(arr);
+         let div = document.getElementsByClassName('filter-space-div')[0];
+        div.innerHTML = '';
+        div.style.display = none;
+    }
+     function colorBlack() {
+            let main = document.getElementsByClassName('product-elements');
+            main = main[0];
+            main.innerHTML = "";
+            let prod = JSON.parse(localStorage.getItem('productsList'));
+            prod = prod.filter(function (a) {
+                if (a.color == "Black") {
+                    arr.push(a);
+                }
+            });
+            display(arr);
+
+            let div = document.getElementsByClassName('filter-space-div')[0];
+         div.innerHTML = '';
+         div.style.display = none;
+        }
+         function colorClear() {
+                let main = document.getElementsByClassName('product-elements');
+                main = main[0];
+                main.innerHTML = "";
+                let prod = JSON.parse(localStorage.getItem('productsList'));
+                prod = prod.filter(function (a) {
+                    if (a.color == "Clear") {
+                        arr.push(a);
+                    }
+                });
+                display(arr);
+                 let div = document.getElementsByClassName('filter-space-div')[0];
+             div.innerHTML = '';
+             div.style.display = none;
+            }
+
+      function mat14k() {
+            let main = document.getElementsByClassName('product-elements');
+            main = main[0];
+            main.innerHTML = "";
+            let prod = JSON.parse(localStorage.getItem('productsList'));
+            prod = prod.filter(function (a) {
+                if (a.material == "14k Gold Plating") {
+                    arr.push(a);
+                }
+            });
+            display(arr);
+             let div = document.getElementsByClassName('filter-space-div')[0];
+          div.innerHTML = '';
+          div.style.display = none;
+        }       
+    function matSilver() {
+            let main = document.getElementsByClassName('product-elements');
+            main = main[0];
+            main.innerHTML = "";
+            let prod = JSON.parse(localStorage.getItem('productsList'));
+            prod = prod.filter(function (a) {
+                if (a.material == "Sterling Silver Post") {
+                    arr.push(a);
+                }
+            });
+            display(arr);
+             let div = document.getElementsByClassName('filter-space-div')[0];
+        div.innerHTML = '';
+        div.style.display = none;
+        }      
+    function price() {
+            let main = document.getElementsByClassName('product-elements');
+            main = main[0];
+            main.innerHTML = "";
+            let min = Number(document.getElementById('min').value);
+            let max = Number(document.getElementById('max').value);
+
+            let prod = JSON.parse(localStorage.getItem('productsList'));
+            let pricearr = [];
+            console.log(min,max)
+            prod = prod.filter(function (a) {
+                let p = Number(a.price);
+                if (p >= min && p <= max ) {
+                    pricearr.push(a);
+                }
+            });
+            console.log(pricearr)
+            display(pricearr);
+             let div = document.getElementsByClassName('filter-space-div')[0];
+        div.innerHTML = '';
+        div.style.display = none;
+        }    
+
+    
 </script>
 
 </html>
