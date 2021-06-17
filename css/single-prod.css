@@ -424,6 +424,7 @@ td {
 .icons > span > a {
   display: inline;
   margin-left: 15px;
+  color: #000;
 }
 
 /* middle div */
@@ -433,14 +434,11 @@ td {
   height: 200px;
   box-sizing: border-box;
 }
-
-.mid1 > div > div:nth-child(1),
-.mid1 > div > div:nth-child(2) {
+.mid1 > div:nth-child(1) > div:nth-child(1),
+.mid1 > div:nth-child(1) > div:nth-child(2) {
   width: 120px;
   height: 52px;
-  background-color: #f7f8f9;
   display: inline-block;
-  border: 1px solid rgb(231, 229, 229);
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 12px;
@@ -448,10 +446,11 @@ td {
   padding-top: 16px;
   letter-spacing: 1px;
 }
-.mid1 > div > div:nth-child(3) {
+.mid1 > div:nth-child(1) > div:nth-child(3) {
   border-bottom: 1px solid rgb(231, 229, 229);
+  margin-left: 370px;
 }
-.mid1 > div > div:nth-child(2) {
+.mid1 > div:nth-child(1) > div:nth-child(2) {
   width: 250px;
   margin-left: -4px;
 }
@@ -459,7 +458,6 @@ td {
   font-family: georgia, palatino;
   font-size: medium;
   letter-spacing: 0.5px;
-  display: none;
   height: auto;
 }
 .mid2 > p:nth-child(1) {
@@ -479,6 +477,7 @@ td {
   font-size: 12px;
   height: auto;
   margin-bottom: 100px;
+  display: none;
 }
 .mid21 > h5 {
   font-size: 13px;
@@ -488,10 +487,164 @@ td {
 .mid21 > p:nth-child(2) {
   margin-bottom: 30px;
 }
+/* div of mid 2 and 21 */
+.inactive {
+  background-color: #f7f8f9;
+}
+.active {
+  border-top: 3px solid black;
+  border-bottom: none;
+  border-right: 1px solid rgb(231, 229, 229);
+  border-left: 1px solid rgb(231, 229, 229);
+}
+/* review part */
 .mid3 {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 24px;
-  margin: 0 0 30px;
+  margin: 100px 0 30px;
   font-weight: lighter;
   box-sizing: border-box;
+  padding-left: 30px;
+}
+.mid3 > p {
+  letter-spacing: 1.5px;
+}
+.mid3 > button {
+  width: 180px;
+  height: 40px;
+  display: inline;
+  margin: 5px;
+  border: 1px solid rgb(207, 207, 207);
+  background-color: white;
+  font-weight: 700;
+  font-size: 13px;
+}
+.mid3 > button:nth-child(2) {
+  margin-left: 700px;
+}
+.review {
+  width: 1170px;
+  margin: auto;
+  height: 200px;
+  box-sizing: border-box;
+}
+.review > div:nth-child(1),
+.review > div:nth-child(2) {
+  width: 120px;
+  height: 52px;
+  display: inline-block;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding-left: 20px;
+  padding-top: 16px;
+  letter-spacing: 1px;
+}
+.review > div:nth-child(3),
+.review > div:nth-child(5),
+.related > div:nth-child(3) {
+  border-bottom: 1px solid rgb(231, 229, 229);
+}
+.review > div:nth-child(4) {
+  margin-top: 70px;
+  margin-left: 400px;
+  color: #aaa;
+  font-size: 14px;
+  font-family: stamped-font;
+  margin-bottom: 40px;
+}
+.review > div:nth-child(4) > i:nth-child(1) {
+  margin-left: 100px;
+}
+.review > div:nth-child(4) > p {
+  display: block;
+  color: #777;
+  font-size: 17px;
+  margin-top: 5px;
+  margin-left: 40px;
+}
+.related {
+  width: 100%;
+  margin: auto;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  height: auto;
+  box-sizing: border-box;
+}
+.related > h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 38px;
+  text-transform: capitalize;
+}
+/* related elements at bottom */
+.product-elements {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.product-ele-div {
+  width: 33.3%;
+  height: 650px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 0px 15px 27px;
+}
+.product-content {
+  width: auto;
+  height: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.product-img-div {
+  width: 100%;
+  height: 650px;
+  margin-bottom: 21px;
+}
+
+/*  */
+/* image div after hover */
+.product-img-div {
+  background-size: 105%;
+  background-color: #c0c0c0;
+  padding: 15px 15px 20px 15px;
+}
+.product-img-div > button {
+  width: 100%;
+  height: 40px;
+  margin-top: 460px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  display: none;
+}
+
+.product-cap {
+  height: 70px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.product-cap > a {
+  color: #383838;
+  font-size: 12px;
+  text-decoration: none;
+}
+.price {
+  margin-top: 9px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }

@@ -101,13 +101,26 @@
 
     <div class="page-tracker">
         <div class="tracker-content">
-            <p><a href="#">Home</a> ><a href="#">New</a> ><a href="#">New arrivals</a> </p>
+            <p><a href="#">Home</a>  ><a href="#">Earrings</a> </p>
         </div>
     </div>
 
     <div class="product-container">
         <div class="product-filter">
             <div class="filter-space">
+                <div class="filter-space-header">
+                    <span>Categories</span>
+                </div>
+                <div class="category">
+                    <ul>
+                        <li><a>statement Earrings</a></li>
+                        <li><a>Charm Earrings</a></li>
+                        <li><a>Natural Earrings</a></li>
+                        <li><a>Hypoallergenic Earrings</a></li>
+                        <li><a>Fine Earrings</a></li>
+                            
+                    </ul>
+                </div>
                 <div class="filter-space-header">
                     <span>Refine By</span>
                 </div>
@@ -123,7 +136,7 @@
                     <div class="filter-list">
                         <ul>
                             <li><input type="checkbox" /><span>Beige</span></li>
-                            <li onclick="colorBlack()"><input  type="checkbox" /><span>Black</span></li>
+                            <li onclick="colorBlack()"><input type="checkbox" /><span>Black</span></li>
                             <li><input type="checkbox" /><span>Champagne</span></li>
                             <li onclick="colorClear()"><input type="checkbox" /><span>Clear</span></li>
                             <li onclick="colorGold()"><input type="checkbox" /><span>Gold</span></li>
@@ -167,7 +180,7 @@
                         <span class="material-icons">
                             chevron_right
                         </span>
-                            <h5> View all brands</h5>
+                        <h5> View all brands</h5>
                         </a>
 
                     </div>
@@ -179,12 +192,7 @@
         <div class="product-div">
             <div class="product-header">
                 <div class="product-header-text">
-                    <span>New Arrivals</span>
-                </div>
-                <div class="new-image">
-                    <a href="#"><img
-                            src="https://cdn11.bigcommerce.com/s-8pcbviyy/product_images/uploaded_images/dec2018-new-arrivals.jpg"
-                            alt="no image" /></a>
+                    <span>Earrings</span>
                 </div>
                 <div class="view-model">
                     <h5>VIEW AS</h5>
@@ -192,15 +200,15 @@
                     <div><i class="fas fa-bars"></i></div>
                     <h5>SORT BY:</h5>
                     <div><select id="sort" onchange="sort()">
-                        <option value="featured" selected="">Featured Items</option>
-                        <option value="newest">Newest Items</option>
-                        <option value="bestselling">Best Selling</option>
-                        <option value="alphaasc">A to Z</option>
-                        <option value="alphadesc">Z to A</option>
-                        <option value="review">By Review</option>
-                        <option value="priceasc">Price: Ascending</option>
-                        <option value="pricedesc">Price: Descending</option>
-                    </select></div>
+                            <option value="featured" selected="">Featured Items</option>
+                            <option value="newest">Newest Items</option>
+                            <option value="bestselling">Best Selling</option>
+                            <option value="alphaasc">A to Z</option>
+                            <option value="alphadesc">Z to A</option>
+                            <option value="review">By Review</option>
+                            <option value="priceasc">Price: Ascending</option>
+                            <option value="pricedesc">Price: Descending</option>
+                        </select></div>
                 </div>
             </div>
             <div class="product-elements">
@@ -230,7 +238,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <!-- Footer -->
     
@@ -336,7 +344,8 @@
 
 
 </body>
-<script>
+
+<script >
 
     // filter divs hide and show
     var i = 0;
@@ -357,84 +366,78 @@
     show(1);
     show(2);
 
-    // products appending from the ojects
-
-     productsList = JSON.parse(localStorage.getItem('productsList'));
     
 
-    function display(list){
+    // products appending from the ojects
+
+    productsList = JSON.parse(localStorage.getItem('productsList'));
+
+
+    function display(list) {
         let main = document.getElementsByClassName('product-elements');
-         main = main[0];
-         let i=1;
+        main = main[0];
+        let i = 1;
 
-         list.forEach(function(ele){
-             if(i<16){
-              let eleDiv = document.createElement('div');
-             eleDiv.setAttribute('class', 'product-ele-div')
+        list.forEach(function (ele) {
+            if(ele.category=="earrings" && i <16){
+            let eleDiv = document.createElement('div');
+            eleDiv.setAttribute('class', 'product-ele-div')
 
-             let pcont = document.createElement('div');
-             pcont.setAttribute('class', 'product-cont')
-             let imgDiv = document.createElement('div');
-             imgDiv.setAttribute('class', 'product-img-div')
-             imgDiv.style.backgroundImage = `url(${ele.url})`;
+            let pcont = document.createElement('div');
+            pcont.setAttribute('class', 'product-cont')
+            let imgDiv = document.createElement('div');
+            imgDiv.setAttribute('class', 'product-img-div')
+            imgDiv.style.backgroundImage = `url(${ele.url})`;
 
-             if(i<6){
-                 let newDiv = document.createElement('div');
-                 newDiv.innerHTML = "NEW";
-                 i++;
-                 imgDiv.append(newDiv);
-             }
+            let btn = document.createElement('button');
+            btn.innerHTML = "QUICK VIEW";
 
-             let btn =document.createElement('button');
-             btn.innerHTML="QUICK VIEW";
+            imgDiv.append(btn);
 
-             imgDiv.append(btn);
+            let pcap = document.createElement('div');
+            pcap.setAttribute('class', 'product-cap')
+            let a = document.createElement('a');
+            a.innerHTML = ele.name;
 
-             let pcap = document.createElement('div');
-             pcap.setAttribute('class', 'product-cap')
-             let a = document.createElement('a');
-             a.innerHTML = ele.name;
+            let price = document.createElement('div');
+            price.innerHTML = "$" + ele.price;
+            price.setAttribute('class', 'price');
 
-             let price = document.createElement('div');
-             price.innerHTML = "$"+ele.price;
-             price.setAttribute('class', 'price');
+            pcap.append(a, price);
 
-             pcap.append(a, price);
+            pcont.append(imgDiv, pcap);
 
-             pcont.append(imgDiv, pcap);
-
-             eleDiv.append(pcont);
+            eleDiv.append(pcont);
 
             imgDiv.onmouseenter = function () {
-                 imgDiv.style.backgroundImage= `url(${ele.url2})`;
-                 btn.style.display="block";
-             }
-             imgDiv.onmouseleave = function () {
-                 imgDiv.style.backgroundImage = `url(${ele.url})`;
-                 btn.style.display = "none";
-             }
-            pcont.onclick=function(){
-               window.location.href='single-prod.html';
+                imgDiv.style.backgroundImage = `url(${ele.url2})`;
+                btn.style.display = "block";
+            }
+            imgDiv.onmouseleave = function () {
+                imgDiv.style.backgroundImage = `url(${ele.url})`;
+                btn.style.display = "none";
+            }
+            pcont.onclick = function () {
+                window.location.href = 'single-prod.html';
                 let one = [];
                 one.push(ele);
-                localStorage.setItem('one',JSON.stringify(one));
-            } 
+                localStorage.setItem('one', JSON.stringify(one));
+            }
 
-             main.append(eleDiv);
-             i++;
+            main.append(eleDiv);
+            i++;
         }
-         });
-
+        });
     }
 
     display(productsList);
-    
-   
 
-    function sort(){
+    
+
+    function sort() {
         let main = document.getElementsByClassName('product-elements');
         main = main[0];
-        main.innerHTML="";
+        main.innerHTML = "";
         let op = document.getElementById('sort').value;
         let prod = JSON.parse(localStorage.getItem('productsList'));
         if (op == "priceasc") {
@@ -443,13 +446,13 @@
             });
             display(prod);
         }
-        if(op == "pricedesc"){
+        if (op == "pricedesc") {
             prod = prod.sort(function (a, b) {
-                return b.price-a.price;
+                return b.price - a.price;
             });
             display(prod);
         }
-         if (op == "alphaasc") {
+        if (op == "alphaasc") {
             prod = prod.sort(function (a, b) {
                 return a.name - b.name;
             });
@@ -460,116 +463,110 @@
                 return b.name - a.name;
             });
             display(prod);
-        }else{
+        } else {
             display(prod);
         }
-        
+
     }
 
     let arr = [];
 
-    function colorGold(){
+    function colorGold() {
         let main = document.getElementsByClassName('product-elements');
         main = main[0];
         main.innerHTML = "";
         let prod = JSON.parse(localStorage.getItem('productsList'));
-        
-         prod = prod.filter(function (a) {
-            if (a.color == "Gold") {
+
+        prod = prod.filter(function (a) {
+            if (a.color == "Gold" ) {
                 arr.push(a);
             }
         });
         display(arr);
-         let div = document.getElementsByClassName('filter-space-div')[0];
-
-        div.style.display = none;
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
     }
-     function colorBlack() {
-            let main = document.getElementsByClassName('product-elements');
-            main = main[0];
-            main.innerHTML = "";
-            let prod = JSON.parse(localStorage.getItem('productsList'));
-            prod = prod.filter(function (a) {
-                if (a.color == "Black") {
-                    arr.push(a);
-                }
-            });
-            display(arr);
-
-            let div = document.getElementsByClassName('filter-space-div')[0];
-    
-         div.style.display = none;
-        }
-         function colorClear() {
-                let main = document.getElementsByClassName('product-elements');
-                main = main[0];
-                main.innerHTML = "";
-                let prod = JSON.parse(localStorage.getItem('productsList'));
-                prod = prod.filter(function (a) {
-                    if (a.color == "Clear") {
-                        arr.push(a);
-                    }
-                });
-                display(arr);
-                 let div = document.getElementsByClassName('filter-space-div')[0];
-        
-             div.style.display = none;
+    function colorBlack() {
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        prod = prod.filter(function (a) {
+            if (a.color == "Black") {
+                arr.push(a);
             }
+        });
+        display(arr);
 
-      function mat14k() {
-            let main = document.getElementsByClassName('product-elements');
-            main = main[0];
-            main.innerHTML = "";
-            let prod = JSON.parse(localStorage.getItem('productsList'));
-            prod = prod.filter(function (a) {
-                if (a.material == "14k Gold Plating") {
-                    arr.push(a);
-                }
-            });
-            display(arr);
-             let div = document.getElementsByClassName('filter-space-div')[0];
-    
-          div.style.display = none;
-        }       
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
+    }
+    function colorClear() {
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        prod = prod.filter(function (a) {
+            if (a.color == "Clear") {
+                arr.push(a);
+            }
+        });
+        display(arr);
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
+    }
+
+    function mat14k() {
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        prod = prod.filter(function (a) {
+            if (a.material == "14k Gold Plating") {
+                arr.push(a);
+            }
+        });
+        display(arr);
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
+    }
     function matSilver() {
-            let main = document.getElementsByClassName('product-elements');
-            main = main[0];
-            main.innerHTML = "";
-            let prod = JSON.parse(localStorage.getItem('productsList'));
-            prod = prod.filter(function (a) {
-                if (a.material == "Sterling Silver Post") {
-                    arr.push(a);
-                }
-            });
-            display(arr);
-             let div = document.getElementsByClassName('filter-space-div')[0];
-
-        div.style.display = none;
-        }      
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        prod = prod.filter(function (a) {
+            if (a.material == "Sterling Silver Post") {
+                arr.push(a);
+            }
+        });
+        display(arr);
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
+    }
     function price() {
-            let main = document.getElementsByClassName('product-elements');
-            main = main[0];
-            main.innerHTML = "";
-            let min = Number(document.getElementById('min').value);
-            let max = Number(document.getElementById('max').value);
+        let main = document.getElementsByClassName('product-elements');
+        main = main[0];
+        main.innerHTML = "";
+        let min = Number(document.getElementById('min').value);
+        let max = Number(document.getElementById('max').value);
 
-            let prod = JSON.parse(localStorage.getItem('productsList'));
-            let pricearr = [];
-            console.log(min,max)
-            prod = prod.filter(function (a) {
-                let p = Number(a.price);
-                if (p >= min && p <= max ) {
-                    pricearr.push(a);
-                }
-            });
-            console.log(pricearr)
-            display(pricearr);
-             let div = document.getElementsByClassName('filter-space-div')[0];
+        let prod = JSON.parse(localStorage.getItem('productsList'));
+        let pricearr = [];
+        console.log(min, max)
+        prod = prod.filter(function (a) {
+            let p = Number(a.price);
+            if (p >= min && p <= max) {
+                pricearr.push(a);
+            }
+        });
+        console.log(pricearr)
+        display(pricearr);
+        let div = document.getElementsByClassName('filter-space-div')[0];
+        div.style.display = "none";
+    }
 
-        div.style.display = none;
-        }    
 
-    
 </script>
 
 </html>
