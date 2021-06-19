@@ -323,16 +323,20 @@ body {
   letter-spacing: 0.04em;
   color: #666666;
   box-sizing: border-box;
+  margin-bottom: 50px;
 }
 .price {
   margin-top: 40px;
   margin-bottom: 30px;
   color: #000000;
 }
+#value {
+  font-size: 20px;
+}
 .price > i {
   font-size: 13px;
   color: gold;
-  margin-right: -5px;
+  margin-right: -2px;
 }
 .price + div {
   display: flex;
@@ -340,6 +344,7 @@ body {
   font-size: 13px;
   font-weight: lighter;
   margin-bottom: 45px;
+  margin-top: 30px;
 }
 .price + div > span {
   margin-left: 5px;
@@ -431,7 +436,7 @@ td {
 .mid1 {
   width: 1170px;
   margin: auto;
-  height: 200px;
+  height: auto;
   box-sizing: border-box;
 }
 .mid1 > div:nth-child(1) > div:nth-child(1),

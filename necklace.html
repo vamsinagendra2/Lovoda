@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovoda | Earrings </title>
+    <title>Lovoda | Necklaces</title>
     <link rel="stylesheet" href="css/new-arrival.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -98,10 +98,11 @@
 
 
     <!-- page tracker............ -->
+    
 
     <div class="page-tracker">
         <div class="tracker-content">
-            <p><a href="#">Home</a>  ><a href="#">Earrings</a> </p>
+            <p><a href="#">Home</a> ><a href="#">Necklaces</a> </p>
         </div>
     </div>
 
@@ -113,12 +114,13 @@
                 </div>
                 <div class="category">
                     <ul>
-                        <li><a>statement Earrings</a></li>
-                        <li><a>Charm Earrings</a></li>
-                        <li><a>Natural Earrings</a></li>
-                        <li><a>Hypoallergenic Earrings</a></li>
-                        <li><a>Fine Earrings</a></li>
-                            
+                        <li><a>Layered Necklaces</a></li>
+                        <li><a>Fine Necklaces</a></li>
+                        <li><a>Y-Necklace & Lariat</a></li>
+                        <li><a>Stone & Marble Necklaces</a></li>
+                        <li><a>Charm Necklaces</a></li>
+                        <li><a>Tassel & Pendant Necklaces</a></li>
+
                     </ul>
                 </div>
                 <div class="filter-space-header">
@@ -135,16 +137,16 @@
                     </div>
                     <div class="filter-list">
                         <ul>
-                            <li><input type="checkbox" /><span>Beige</span></li>
-                            <li onclick="colorBlack()"><input type="checkbox" /><span>Black</span></li>
-                            <li><input type="checkbox" /><span>Champagne</span></li>
+                            <li onclick="colorSilver()"><input type="checkbox" /><span>Silver</span></li>
+                            <li><input type="checkbox" /><span>Blue</span></li>
                             <li onclick="colorClear()"><input type="checkbox" /><span>Clear</span></li>
                             <li onclick="colorGold()"><input type="checkbox" /><span>Gold</span></li>
                             <li><input type="checkbox" /><span>Gray</span></li>
                             <li><input type="checkbox" /><span>Green</span></li>
-                            <li><input type="checkbox" /><span>Multi</span></li>
-                            <li><input type="checkbox" /><span>Neutral Tones</span></li>
+                            <li><input type="checkbox" /><span>Pink</span></li>
+                            <li><input type="checkbox" /><span>Rose Gold</span></li>
                             <li><input type="checkbox" /><span>Orange</span></li>
+                            <li><input type="checkbox" /><span>Beige</span></li>
                         </ul>
                     </div>
                     <div class="filter-list-header" onclick="show(1)">
@@ -152,12 +154,12 @@
                     </div>
                     <div class="filter-list">
                         <ul>
-                            <li><input type="checkbox" /><span>10k Gold Plating</span></li>
                             <li onclick="mat14k()"><input type="checkbox" /><span>14k Gold Plating</span></li>
+                            <li onclick="matSilver()"><input type="checkbox" /><span>Sterling Silver</span></li>
+                            <li><input type="checkbox" /><span>10k Gold Plating</span></li>
                             <li><input type="checkbox" /><span>14k Rose Gold Plating</span></li>
                             <li><input type="checkbox" /><span>Acrylic</span></li>
                             <li><input type="checkbox" /><span>Stainless Steel</span></li>
-                            <li onclick="matSilver()"><input type="checkbox" /><span>Sterling Silver</span></li>
                         </ul>
                     </div>
                     <div class="filter-list-header" onclick="show(2)">
@@ -192,7 +194,7 @@
         <div class="product-div">
             <div class="product-header">
                 <div class="product-header-text">
-                    <span>Earrings</span>
+                    <span>Necklaces</span>
                 </div>
                 <div class="view-model">
                     <h5>VIEW AS</h5>
@@ -201,29 +203,18 @@
                     <h5>SORT BY:</h5>
                     <div><select id="sort" onchange="sort()">
                             <option value="featured" selected="">Featured Items</option>
+                            <option value="priceasc">Price: Ascending</option>
+                            <option value="pricedesc">Price: Descending</option>
                             <option value="newest">Newest Items</option>
                             <option value="bestselling">Best Selling</option>
                             <option value="alphaasc">A to Z</option>
                             <option value="alphadesc">Z to A</option>
                             <option value="review">By Review</option>
-                            <option value="priceasc">Price: Ascending</option>
-                            <option value="pricedesc">Price: Descending</option>
                         </select></div>
                 </div>
             </div>
             <div class="product-elements">
-                <!-- <div class="product-ele-div">
-                    <div class="product-cont">
-                        <div class="product-img-div">
-                            <div>NEW</div>
-                            <button>QUICK VIEW</button>
-                        </div>
-                        <div class="product-cap">
-                            <a href="#">Triangle and Pears Asymmetrical Hoop Earrings</a>
-                            <div class="price">$28.00</div>
-                        </div>
-                    </div>
-                </div> -->
+                
             </div>
 
             <div class="pagenation">
@@ -241,8 +232,8 @@
 
     </div>
     <!-- Footer -->
-    
-    
+
+
     <div class="main-footer">
         <div class="footer-container">
             <div class="footer-coloums">
@@ -267,7 +258,7 @@
                     <li><a href="#">Bracelets</a></li>
                     <li><a href="#">Meet a Stylist</a></li>
                     <li><a href="#">Visit Us</a></li>
-    
+
                 </ul>
             </div>
             <div class="footer-coloums">
@@ -336,7 +327,8 @@
                 <a href="https://www.visa.co.in/"><i class="fa fa-cc-visa" style="font-size:40px"></i></a>
                 <a href="https://www.mastercard.co.in/en-in.html"><i class="fa fa-cc-mastercard"
                         style="font-size:40px"></i></a>
-                <a href="https://www.americanexpress.com/en-in/"><i class="fa fa-cc-amex" style="font-size:40px"></i></a>
+                <a href="https://www.americanexpress.com/en-in/"><i class="fa fa-cc-amex"
+                        style="font-size:40px"></i></a>
                 <a href="https://www.discover.com/"><i class="fa fa-cc-discover" style="font-size:40px"></i></a>
             </div>
         </section>
@@ -344,8 +336,9 @@
 
 
 </body>
+<script src="js/list.js" ></script>
 
-<script >
+<script>
 
     // filter divs hide and show
     var i = 0;
@@ -366,7 +359,7 @@
     show(1);
     show(2);
 
-    
+
 
     // products appending from the ojects
 
@@ -379,60 +372,61 @@
         let i = 1;
 
         list.forEach(function (ele) {
-            if(ele.category=="earrings" && i <16){
-            let eleDiv = document.createElement('div');
-            eleDiv.setAttribute('class', 'product-ele-div')
+            console.log(ele);
+            if (ele.category == "necklace" && i < 16) {
+                let eleDiv = document.createElement('div');
+                eleDiv.setAttribute('class', 'product-ele-div')
 
-            let pcont = document.createElement('div');
-            pcont.setAttribute('class', 'product-cont')
-            let imgDiv = document.createElement('div');
-            imgDiv.setAttribute('class', 'product-img-div')
-            imgDiv.style.backgroundImage = `url(${ele.url})`;
-
-            let btn = document.createElement('button');
-            btn.innerHTML = "QUICK VIEW";
-
-            imgDiv.append(btn);
-
-            let pcap = document.createElement('div');
-            pcap.setAttribute('class', 'product-cap')
-            let a = document.createElement('a');
-            a.innerHTML = ele.name;
-
-            let price = document.createElement('div');
-            price.innerHTML = "$" + ele.price;
-            price.setAttribute('class', 'price');
-
-            pcap.append(a, price);
-
-            pcont.append(imgDiv, pcap);
-
-            eleDiv.append(pcont);
-
-            imgDiv.onmouseenter = function () {
-                imgDiv.style.backgroundImage = `url(${ele.url2})`;
-                btn.style.display = "block";
-            }
-            imgDiv.onmouseleave = function () {
+                let pcont = document.createElement('div');
+                pcont.setAttribute('class', 'product-cont')
+                let imgDiv = document.createElement('div');
+                imgDiv.setAttribute('class', 'product-img-div')
                 imgDiv.style.backgroundImage = `url(${ele.url})`;
-                btn.style.display = "none";
-            }
-            pcont.onclick = function () {
-                window.location.href = 'single-prod.html';
-                let one = [];
-                one.push(ele);
-                localStorage.setItem('one', JSON.stringify(one));
-            }
 
-            main.append(eleDiv);
-            i++;
-        }
+                let btn = document.createElement('button');
+                btn.innerHTML = "QUICK VIEW";
+
+                imgDiv.append(btn);
+
+                let pcap = document.createElement('div');
+                pcap.setAttribute('class', 'product-cap')
+                let a = document.createElement('a');
+                a.innerHTML = ele.name;
+
+                let price = document.createElement('div');
+                price.innerHTML = "$" + ele.price;
+                price.setAttribute('class', 'price');
+
+                pcap.append(a, price);
+
+                pcont.append(imgDiv, pcap);
+
+                eleDiv.append(pcont);
+
+                imgDiv.onmouseenter = function () {
+                    imgDiv.style.backgroundImage = `url(${ele.url2})`;
+                    btn.style.display = "block";
+                }
+                imgDiv.onmouseleave = function () {
+                    imgDiv.style.backgroundImage = `url(${ele.url})`;
+                    btn.style.display = "none";
+                }
+                pcont.onclick = function () {
+                    window.location.href = 'single-prod.html';
+                    let one = [];
+                    one.push(ele);
+                    localStorage.setItem('one', JSON.stringify(one));
+                }
+
+                main.append(eleDiv);
+                i++;
+            }
         });
     }
 
     display(productsList);
 
-    
+
 
     function sort() {
         let main = document.getElementsByClassName('product-elements');
@@ -478,7 +472,7 @@
         let prod = JSON.parse(localStorage.getItem('productsList'));
 
         prod = prod.filter(function (a) {
-            if (a.color == "Gold" ) {
+            if (a.color == "Gold") {
                 arr.push(a);
             }
         });
@@ -486,13 +480,13 @@
         let div = document.getElementsByClassName('filter-space-div')[0];
         div.style.display = "none";
     }
-    function colorBlack() {
+    function colorSilver() {
         let main = document.getElementsByClassName('product-elements');
         main = main[0];
         main.innerHTML = "";
         let prod = JSON.parse(localStorage.getItem('productsList'));
         prod = prod.filter(function (a) {
-            if (a.color == "Black") {
+            if (a.color == "Silver") {
                 arr.push(a);
             }
         });

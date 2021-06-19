@@ -100,7 +100,7 @@
 
     <div class="page-tracker">
         <div class="tracker-content">
-            <p><a href="#">Home</a> ><a href="#">New</a> ><a href="#">New arrivals</a> ><a class="prodname">Armored Curved Huggie Hoop Earrings</a> </p>
+            <p><a href="#">Home</a> ><a href="#">New</a> ><a class="prodname">Armored Curved Huggie Hoop Earrings</a> </p>
         </div>
     </div>
     <div class="product-cont">
@@ -233,7 +233,7 @@
     <!-- Footer -->
     
     
-    <div class="main-footer" style="margin-top: 1350px;">
+    <div class="main-footer" >
         <div class="footer-container">
             <div class="footer-coloums">
                 <h3>SHOP</h3>
@@ -339,6 +339,7 @@
         let single =[];
         single.push(one[0]);
         single=single[0];
+        console.log(single);
 
         let track = document.getElementsByClassName('prodname')[0];
         track.innerHTML=single.name;
@@ -417,7 +418,7 @@
                     wishlist = JSON.parse(localStorage.getItem('wishlist'));
                     wishlist.forEach(function (a) {
                         if (a.name == single.name) {
-                            alert('already in cart')
+                            alert('already in wishlist')
                         } else {
                             wishlist.push(single);
                         }
